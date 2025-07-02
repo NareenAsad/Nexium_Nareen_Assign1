@@ -30,7 +30,7 @@ A beautifully designed motivational quote generator app built with **Next.js**, 
 ## 📦 Installation
 
 ```bash
-git clone https://github.com/yourusername/mindflare.git
+git clone https://github.com/NareenAsad/Nexium_Nareen_Assign1.git
 cd mindflare
 npm install
 npm run dev
