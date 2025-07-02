@@ -1,4 +1,4 @@
-🧠 MindFlare – Quote Generator Web App
+##🧠 MindFlare – Quote Generator Web App
 
 MindFlare is a beautifully designed quote generator web app built with Next.js, Tailwind CSS, Framer Motion, and Lucide Icons. Users can explore motivational quotes, save their favorites locally, and enjoy a smooth, animated UI experience.
 ✨ Features
