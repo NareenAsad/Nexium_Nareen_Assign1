@@ -1,7 +1,8 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import Navbar from '@/components/Navbar';
-import { FavoritesProvider } from '@/context/FavoritesContext'; // ✅ import
+import { FavoritesProvider } from '@/context/FavoritesContext';
+import { Toaster } from 'sonner';
+import ClientLayout from '@/components/ClientLayout';
 
 export const metadata: Metadata = {
   title: 'Quote Generator',
@@ -13,10 +14,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         <FavoritesProvider>
-          <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
-            <Navbar />
-            <main className="pt-24 px-4 container mx-auto">{children}</main>
-          </div>
+          <Toaster richColors position="top-center" />
+          <ClientLayout>{children}</ClientLayout>
         </FavoritesProvider>
       </body>
     </html>

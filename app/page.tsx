@@ -1,9 +1,29 @@
 'use client';
 
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import QuoteGenerator from '@/components/QuoteGenerator';
+import router from 'next/router';
 
 export default function HomePage() {
+  const [loading, setLoading] = useState(true); // Track hydration
+
+  useEffect(() => {
+    // Wait until window is available
+    const checkAuth = () => {
+      const user = JSON.parse(localStorage.getItem('user') || 'null');
+      if (!user) {
+        router.replace('/sign-in');
+      } else {
+        setLoading(false); // Show page content only if authenticated
+      }
+    };
+
+    checkAuth();
+  }, [router]);
+
+  if (loading) return null; // Or a loading spinner
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900">
       <Navbar />
