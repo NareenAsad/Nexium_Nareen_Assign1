@@ -3,31 +3,31 @@
 MindFlare is a beautifully designed quote generator web app built with Next.js, Tailwind CSS, Framer Motion, and Lucide Icons. Users can explore motivational quotes, save their favorites locally, and enjoy a smooth, animated UI experience.
 ✨ Features
 
-    🎯 Quote Generator: Displays curated motivational quotes.
+    - Quote Generator: Displays curated motivational quotes.
 
-    ❤️ Favorites Section: Users can add/remove quotes to a local favorites list.
+    -  Favorites Section: Users can add/remove quotes to a local favorites list.
 
-    🔐 Authentication: Sign Up / Sign In using Firebase Authentication.
+    -  Authentication: Sign Up / Sign In using Firebase Authentication.
 
-    💾 Local Storage: Favorites persist across page refreshes using localStorage.
+    -  Local Storage: Favorites persist across page refreshes using localStorage.
 
-    💡 Modern UI: Built with responsive Tailwind CSS and Framer Motion animations.
+    -  Modern UI: Built with responsive Tailwind CSS and Framer Motion animations.
 
-    🔗 Navigation: Intuitive navbar for seamless user experience.
+    -  Navigation: Intuitive navbar for seamless user experience.
 
 🚀 **Tech Stack**
 
-    Frontend: Next.js 14 (App Router), React, Tailwind CSS
+    - Frontend: Next.js 14 (App Router), React, Tailwind CSS
 
-    Animations: Framer Motion
+    - Animations: Framer Motion
 
-    Icons: Lucide React
+    - Icons: Lucide React
 
-    Auth: Firebase Authentication
+    - Auth: Firebase Authentication
 
-    State Management: Custom React Hooks and Context API
+    - State Management: Custom React Hooks and Context API
 
-    Persistence: localStorage
+    - Persistence: localStorage
     
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
