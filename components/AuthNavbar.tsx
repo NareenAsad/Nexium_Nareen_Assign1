@@ -6,7 +6,7 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 const AuthNavbar = () => {
   return (
     <nav className="bg-opacity-90 backdrop-blur-md border-b border-white/10 bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 p-4 flex justify-between items-center py-6">
-      <Link href="/" className="text-white font-bold text-lg">
+      <Link href="/" className="text-white font-bold text-2xl">
         MindFlare
       </Link>
 

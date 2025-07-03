@@ -120,3 +120,20 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* For flipping effect */
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style-preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.twinkle-star {
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.7);
+}

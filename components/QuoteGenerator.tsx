@@ -70,7 +70,7 @@ const QuoteGenerator: React.FC = () => {
               Choose Your Topic
             </label>
             <Select value={selectedTopic} onValueChange={handleTopicChange}>
-              <SelectTrigger className="w-full h-12 text-lg bg-white/90 border-white/30 focus:border-blue-400">
+              <SelectTrigger className="w-full h-12 text-lg bg-white/90 border-white/30 focus:border-blue-400 text-black">
                 <SelectValue placeholder="Select a topic for inspiration..." />
               </SelectTrigger>
               <SelectContent>

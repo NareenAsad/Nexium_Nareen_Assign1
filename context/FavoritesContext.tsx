@@ -1,6 +1,19 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  ReactNode,
+} from 'react';
+import {
+  doc,
+  getDoc,
+  setDoc,
+} from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth, db } from '@/lib/firebase';
 
 export interface Quote {
   id: number;
@@ -21,32 +34,69 @@ const FavoritesContext = createContext<FavoritesContextType | undefined>(undefin
 
 export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
   const [favorites, setFavorites] = useState<Quote[]>([]);
+  const [userEmail, setUserEmail] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
 
+  // Step 1: Listen for auth change
   useEffect(() => {
-    const saved = localStorage.getItem('quote-favorites');
-    if (saved) setFavorites(JSON.parse(saved));
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if (user?.email) {
+        setUserEmail(user.email);
+
+        // Step 2: Load favorites from Firestore
+        const docRef = doc(db, 'favorites', user.email);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          setFavorites(docSnap.data().quotes || []);
+        }
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('quote-favorites', JSON.stringify(favorites));
-  }, [favorites]);
+  // Step 3: Save favorites to Firestore
+  const saveFavorites = async (updatedFavorites: Quote[]) => {
+    if (!userEmail) return;
+    const docRef = doc(db, 'favorites', userEmail);
+    await setDoc(docRef, { quotes: updatedFavorites });
+  };
 
   const addToFavorites = (quote: Quote) => {
-    setFavorites(prev => (prev.some(f => f.id === quote.id) ? prev : [...prev, quote]));
+    setFavorites((prev) => {
+      const updated = prev.some((q) => q.id === quote.id) ? prev : [...prev, quote];
+      saveFavorites(updated);
+      return updated;
+    });
   };
 
   const removeFromFavorites = (quoteId: number) => {
-    setFavorites(prev => prev.filter(q => q.id !== quoteId));
+    setFavorites((prev) => {
+      const updated = prev.filter((q) => q.id !== quoteId);
+      saveFavorites(updated);
+      return updated;
+    });
   };
 
-  const isFavorite = (quoteId: number) => favorites.some(q => q.id === quoteId);
+  const isFavorite = (quoteId: number) => favorites.some((q) => q.id === quoteId);
 
   const toggleFavorite = (quote: Quote) => {
     isFavorite(quote.id) ? removeFromFavorites(quote.id) : addToFavorites(quote);
   };
 
+  if (loading) return null;
+
   return (
-    <FavoritesContext.Provider value={{ favorites, addToFavorites, removeFromFavorites, isFavorite, toggleFavorite }}>
+    <FavoritesContext.Provider
+      value={{
+        favorites,
+        addToFavorites,
+        removeFromFavorites,
+        isFavorite,
+        toggleFavorite,
+      }}
+    >
       {children}
     </FavoritesContext.Provider>
   );
@@ -54,6 +104,8 @@ export const FavoritesProvider = ({ children }: { children: ReactNode }) => {
 
 export const useFavorites = () => {
   const context = useContext(FavoritesContext);
-  if (!context) throw new Error('useFavorites must be used within FavoritesProvider');
+  if (!context) {
+    throw new Error('useFavorites must be used within FavoritesProvider');
+  }
   return context;
 };
