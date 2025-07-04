@@ -55,7 +55,7 @@ const SignUpPage = () => {
       }
 
       toast.success('Account created successfully!');
-      router.push('/dashboard');
+      router.push('/sign-in');
 
     } catch (error: any) {
       toast.error(error.message || 'Sign up failed');
