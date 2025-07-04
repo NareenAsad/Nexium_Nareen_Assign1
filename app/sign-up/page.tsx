@@ -9,7 +9,7 @@ import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card';
 import { toast } from 'sonner';
 import Link from 'next/link';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
 import { auth, db } from '@/lib/firebase';
 
 const SignUpPage = () => {
@@ -32,15 +32,30 @@ const SignUpPage = () => {
 
       await updateProfile(user, { displayName: name });
 
-      await setDoc(doc(db, 'users', user.uid), {
+      const userRef = doc(db, 'users', user.uid);
+
+      // Store user data in Firestore
+      await setDoc(userRef, {
         uid: user.uid,
         name,
         email,
         createdAt: new Date().toISOString()
       });
 
+      // 🔍 Debug: Attempt to fetch the document just written
+      try {
+        const docSnap = await getDoc(userRef);
+        if (docSnap.exists()) {
+          console.log('User document created:', docSnap.data());
+        } else {
+          console.warn('User document not found after creation.');
+        }
+      } catch (err) {
+        console.error('Firestore Read Error:', err);
+      }
+
       toast.success('Account created successfully!');
-      router.push('/sign-in');
+      router.push('/dashboard');
 
     } catch (error: any) {
       toast.error(error.message || 'Sign up failed');
@@ -48,8 +63,8 @@ const SignUpPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center pt-10">
-      <Card className="w-[90%] max-w-md shadow-md">
+    <div className="flex justify-center items-center pt-7">
+      <Card className="w-[80%] max-w-md shadow-md">
         <CardHeader>
           <CardTitle className="text-2xl text-blue-900 text-center">Sign Up</CardTitle>
         </CardHeader>
