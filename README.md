@@ -1,29 +1,33 @@
-# 💬 MindFlare Quote Generator
+# 💬 MindFlare – Quote Generator
 
-A beautifully designed motivational quote generator app built with **Next.js**, featuring favorites, smooth animations, and a clean user interface. Users can sign up, generate topic-based quotes, and save their favorites for later.
+A beautifully designed motivational quote generator app built with **Next.js**, featuring topic-based quotes, authentication, animated visuals, and persistent favorites. Users can sign up, generate curated quotes, and save their favorite ones — all in a sleek, modern UI.
 
 ---
 
 ## ✨ Features
 
-- 🎯 **Quote Generator**: Displays curated motivational quotes by category.
-- ❤️ **Favorites Section**: Add or remove favorite quotes using the heart icon.
-- 🔐 **Authentication**: Sign Up / Sign In with Firebase Auth (email/password).
-- 💾 **Persistence**: Favorites are stored in `localStorage` for future visits.
-- 💡 **Modern UI**: Styled with Tailwind CSS and animated with Framer Motion.
-- 🔗 **Responsive Navigation**: Easy access to Home and Favorites.
+- 🎯 **Quote Generator** – Get inspirational quotes based on selected topics.
+- ❤️ **Favorites Section** – Save your favorite quotes (user-specific).
+- 🔐 **Authentication** – Firebase Auth with email & password.
+- ☁️ **Firestore Integration** – Favorites stored securely in Firebase Firestore.
+- 🌠 **Starry Animation** – Subtle animated background with stars for aesthetic depth.
+- 💡 **Modern UI** – Built with Tailwind CSS and ShadCN UI components.
+- 🧠 **Responsive Design** – Fully mobile-friendly layout.
+- ⚙️ **Custom State Management** – Context API + custom React Hooks.
 
 ---
 
 ## 🚀 Tech Stack
 
-- **Framework**: [Next.js 14 (App Router)](https://nextjs.org/)
-- **Frontend**: React, Tailwind CSS, ShadCN UI
-- **Animations**: Framer Motion
-- **Icons**: Lucide React
-- **Auth**: Firebase Authentication
-- **State Management**: Custom React Hooks + Context API
-- **Persistence**: Browser `localStorage`
+| Layer         | Tech Used |
+|---------------|-----------|
+| **Framework** | [Next.js 14 (App Router)](https://nextjs.org/) |
+| **UI**        | React, Tailwind CSS, ShadCN UI |
+| **Animations**| Framer Motion |
+| **Icons**     | Lucide React |
+| **Auth**      | Firebase Authentication |
+| **Database**  | Firebase Firestore |
+| **State**     | Context API & Custom Hooks |
 
 ---
 
@@ -31,6 +35,6 @@ A beautifully designed motivational quote generator app built with **Next.js**, 
 
 ```bash
 git clone https://github.com/NareenAsad/Nexium_Nareen_Assign1.git
-cd mindflare
+cd Nexium_Nareen_Assign1
 npm install
 npm run dev
