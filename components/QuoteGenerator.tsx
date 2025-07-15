@@ -1,24 +1,26 @@
-import React, { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Sparkles, RefreshCw } from 'lucide-react'
-import { Button } from './ui/button'
+'use client';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Sparkles, RefreshCw } from 'lucide-react';
+import { Button } from './ui/button';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from './ui/select'
-import QuoteCard from './QuoteCard'
-import { useFavorites, Quote } from '../context/FavoritesContext'
-import quotesData from '../data/quotes.json'
+} from './ui/select';
+import QuoteCard from './QuoteCard';
+import { useFavorites, Quote } from '../context/FavoritesContext';
+import quotesData from '../data/quotes.json';
 
 const QuoteGenerator: React.FC = () => {
-  const [selectedTopic, setSelectedTopic] = useState<string>('')
-  const [displayedQuotes, setDisplayedQuotes] = useState<Quote[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [selectedTopic, setSelectedTopic] = useState<string>('');
+  const [displayedQuotes, setDisplayedQuotes] = useState<Quote[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { favorites, toggleFavorite, isFavorite } = useFavorites()
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
 
   const topics = [
     { value: 'motivation', label: 'Motivation' },
@@ -27,30 +29,35 @@ const QuoteGenerator: React.FC = () => {
     { value: 'innovation', label: 'Innovation' },
     { value: 'perseverance', label: 'Perseverance' },
     { value: 'happiness', label: 'Happiness' },
-  ]
+    { value: 'wisdom', label: 'Wisdom' },
+    { value: 'mindfulness', label: 'Mindfulness' },
+    { value: 'creativity', label: 'Creativity' },
+    { value: 'courage', label: 'Courage' },
+    { value: 'growth', label: 'Growth' },
+  ];
 
   const generateQuotes = () => {
-    if (!selectedTopic) return
+    if (!selectedTopic) return;
 
-    setIsLoading(true)
+    setIsLoading(true);
 
     setTimeout(() => {
       const filteredQuotes = quotesData.filter(
         (quote: Quote) => quote.category === selectedTopic
-      )
+      );
 
-      const shuffled = [...filteredQuotes].sort(() => 0.5 - Math.random())
-      const selectedQuotes = shuffled.slice(0, 3)
+      const shuffled = [...filteredQuotes].sort(() => 0.5 - Math.random());
+      const selectedQuotes = shuffled.slice(0, 3);
 
-      setDisplayedQuotes(selectedQuotes)
-      setIsLoading(false)
-    }, 800)
-  }
+      setDisplayedQuotes(selectedQuotes);
+      setIsLoading(false);
+    }, 800);
+  };
 
   const handleTopicChange = (value: string) => {
-    setSelectedTopic(value)
-    setDisplayedQuotes([])
-  }
+    setSelectedTopic(value);
+    setDisplayedQuotes([]);
+  };
 
   return (
     <div className="max-w-4xl mx-auto">
@@ -73,7 +80,7 @@ const QuoteGenerator: React.FC = () => {
               <SelectTrigger className="w-full h-12 text-lg bg-white/90 border-white/30 focus:border-blue-400 text-black">
                 <SelectValue placeholder="Select a topic for inspiration..." />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="max-h-60 overflow-y-auto">
                 {topics.map((topic) => (
                   <SelectItem key={topic.value} value={topic.value}>
                     {topic.label}
@@ -182,7 +189,7 @@ const QuoteGenerator: React.FC = () => {
         </motion.div>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default QuoteGenerator
+export default QuoteGenerator;

@@ -214,5 +214,156 @@
     "text": "If you are not willing to risk the usual, you will have to settle for the ordinary.",
     "author": "Jim Rohn",
     "category": "innovation"
-  }
+  },
+  {
+  "id": 37,
+  "text": "Knowing yourself is the beginning of all wisdom.",
+  "author": "Aristotle",
+  "category": "wisdom"
+},
+{
+  "id": 38,
+  "text": "It is the mark of an educated mind to be able to entertain a thought without accepting it.",
+  "author": "Aristotle",
+  "category": "wisdom"
+},
+{
+  "id": 39,
+  "text": "Turn your wounds into wisdom.",
+  "author": "Oprah Winfrey",
+  "category": "wisdom"
+},
+{
+  "id": 40,
+  "text": "The fool doth think he is wise, but the wise man knows himself to be a fool.",
+  "author": "William Shakespeare",
+  "category": "wisdom"
+},
+{
+  "id": 41,
+  "text": "In seeking wisdom, the first step is silence, the second listening, the third remembering, the fourth practicing, the fifth teaching.",
+  "author": "Solomon Ibn Gabirol",
+  "category": "wisdom"
+},
+{
+  "id": 42,
+  "text": "Do every act of your life as though it were the very last act of your life.",
+  "author": "Marcus Aurelius",
+  "category": "mindfulness"
+},
+{
+  "id": 43,
+  "text": "The present moment is the only time over which we have dominion.",
+  "author": "Thích Nhất Hạnh",
+  "category": "mindfulness"
+},
+{
+  "id": 44,
+  "text": "Mindfulness isn't difficult, we just need to remember to do it.",
+  "author": "Sharon Salzberg",
+  "category": "mindfulness"
+},
+{
+  "id": 45,
+  "text": "Be happy in the moment, that’s enough. Each moment is all we need, not more.",
+  "author": "Mother Teresa",
+  "category": "mindfulness"
+},
+{
+  "id": 46,
+  "text": "The mind is everything. What you think you become.",
+  "author": "Buddha",
+  "category": "mindfulness"
+},
+{
+  "id": 47,
+  "text": "Creativity is intelligence having fun.",
+  "author": "Albert Einstein",
+  "category": "creativity"
+},
+{
+  "id": 48,
+  "text": "You can’t use up creativity. The more you use, the more you have.",
+  "author": "Maya Angelou",
+  "category": "creativity"
+},
+{
+  "id": 49,
+  "text": "Everything you can imagine is real.",
+  "author": "Pablo Picasso",
+  "category": "creativity"
+},
+{
+  "id": 50,
+  "text": "To practice any art, no matter how well or badly, is a way to make your soul grow.",
+  "author": "Kurt Vonnegut",
+  "category": "creativity"
+},
+{
+  "id": 51,
+  "text": "Creativity takes courage.",
+  "author": "Henri Matisse",
+  "category": "creativity"
+},
+{
+  "id": 52,
+  "text": "Courage is resistance to fear, mastery of fear—not absence of fear.",
+  "author": "Mark Twain",
+  "category": "courage"
+},
+{
+  "id": 53,
+  "text": "It takes courage to grow up and become who you really are.",
+  "author": "E.E. Cummings",
+  "category": "courage"
+},
+{
+  "id": 54,
+  "text": "You gain strength, courage and confidence by every experience in which you really stop to look fear in the face.",
+  "author": "Eleanor Roosevelt",
+  "category": "courage"
+},
+{
+  "id": 55,
+  "text": "Without courage, wisdom bears no fruit.",
+  "author": "Baltasar Gracian",
+  "category": "courage"
+},
+{
+  "id": 56,
+  "text": "Scared is what you're feeling. Brave is what you're doing.",
+  "author": "Emma Donoghue",
+  "category": "courage"
+},
+{
+  "id": 57,
+  "text": "Strive not to be a success, but rather to be of value.",
+  "author": "Albert Einstein",
+  "category": "growth"
+},
+{
+  "id": 58,
+  "text": "We can’t become what we need to be by remaining what we are.",
+  "author": "Oprah Winfrey",
+  "category": "growth"
+},
+{
+  "id": 59,
+  "text": "Life is growth. If we stop growing, technically and spiritually, we are as good as dead.",
+  "author": "Morihei Ueshiba",
+  "category": "growth"
+},
+{
+  "id": 60,
+  "text": "Be not afraid of growing slowly; be afraid only of standing still.",
+  "author": "Chinese Proverb",
+  "category": "growth"
+},
+{
+  "id": 61,
+  "text": "Growth is painful. Change is painful. But nothing is as painful as staying stuck somewhere you don’t belong.",
+  "author": "Mandy Hale",
+  "category": "growth"
+}
+
 ]

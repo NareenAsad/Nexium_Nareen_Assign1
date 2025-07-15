@@ -1,37 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { onAuthStateChanged } from 'firebase/auth';
-import { auth } from '@/lib/firebase';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Navbar from '@/components/Navbar';
 import Link from 'next/link';
 
 export default function Dashboard() {
-  const router = useRouter();
   const [flippedIndexes, setFlippedIndexes] = useState<number[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        router.replace('/sign-in');
-      } else {
-        setLoading(false);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [router]);
 
   const handleFlip = (index: number) => {
     setFlippedIndexes((prev) =>
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
-
-  if (loading) return null;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900 text-white">
@@ -56,17 +37,29 @@ export default function Dashboard() {
           {steps.map((step, index) => {
             const isFlipped = flippedIndexes.includes(index);
             return (
-              <div key={index} className="relative [perspective:1000px] cursor-pointer" onClick={() => handleFlip(index)}>
-                <div className={`relative h-40 w-full transition-transform duration-700 [transform-style:preserve-3d] ${isFlipped ? 'rotate-y-180' : ''}`}>
+              <div
+                key={index}
+                className="relative [perspective:1000px] cursor-pointer"
+                onClick={() => handleFlip(index)}
+              >
+                <div
+                  className={`relative h-40 w-full transition-transform duration-700 [transform-style:preserve-3d] ${
+                    isFlipped ? 'rotate-y-180' : ''
+                  }`}
+                >
                   {/* Front */}
-                  <div className={`absolute w-full h-full rounded-xl p-6 shadow-xl ${step.frontBg} [backface-visibility:hidden] flex items-center justify-center text-center`}>
+                  <div
+                    className={`absolute w-full h-full rounded-xl p-6 shadow-xl ${step.frontBg} [backface-visibility:hidden] flex items-center justify-center text-center`}
+                  >
                     <div>
                       <h3 className="text-xl font-bold mb-2">{step.title}</h3>
                       <p>{step.frontText}</p>
                     </div>
                   </div>
                   {/* Back */}
-                  <div className={`absolute w-full h-full rounded-xl p-6 shadow-xl ${step.backBg} [backface-visibility:hidden] rotate-y-180 flex items-center justify-center text-center`}>
+                  <div
+                    className={`absolute w-full h-full rounded-xl p-6 shadow-xl ${step.backBg} [backface-visibility:hidden] rotate-y-180 flex items-center justify-center text-center`}
+                  >
                     <p>{step.backText}</p>
                   </div>
                 </div>
@@ -79,27 +72,26 @@ export default function Dashboard() {
   );
 }
 
-// Flip card content
 const steps = [
   {
-    title: "Step 1: Choose a Topic",
-    frontText: "Pick a category that fits your mindset or goals.",
-    backText: "Your topic guides the quotes you’ll receive — choose what moves you.",
-    frontBg: "bg-indigo-800 text-white",
-    backBg: "bg-indigo-800 text-white"
+    title: 'Step 1: Choose a Topic',
+    frontText: 'Pick a category that fits your mindset or goals.',
+    backText: 'Your topic guides the quotes you’ll receive — choose what moves you.',
+    frontBg: 'bg-indigo-800 text-white',
+    backBg: 'bg-indigo-800 text-white',
   },
   {
-    title: "Step 2: Generate Quotes",
+    title: 'Step 2: Generate Quotes',
     frontText: "Click 'Generate' to receive 3 inspiring quotes instantly.",
-    backText: "Our algorithm handpicks motivational quotes to keep you going.",
-    frontBg: "bg-indigo-800 text-white",
-    backBg: "bg-indigo-800 text-white"
+    backText: 'Our algorithm handpicks motivational quotes to keep you going.',
+    frontBg: 'bg-indigo-800 text-white',
+    backBg: 'bg-indigo-800 text-white',
   },
   {
-    title: "Step 3: Save Your Favorites",
-    frontText: "Keep your favorite quotes for future inspiration.",
-    backText: "All saved quotes are stored in your personal list for daily boosts.",
-    frontBg: "bg-indigo-800 text-white",
-    backBg: "bg-indigo-800 text-white"
-  }
+    title: 'Step 3: Save Your Favorites',
+    frontText: 'Keep your favorite quotes for future inspiration.',
+    backText: 'All saved quotes are stored in your personal list for daily boosts.',
+    frontBg: 'bg-indigo-800 text-white',
+    backBg: 'bg-indigo-800 text-white',
+  },
 ];
