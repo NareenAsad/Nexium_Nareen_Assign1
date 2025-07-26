@@ -1,6 +1,6 @@
 # 💬 MindFlare – Quote Generator
 
-A beautifully designed motivational quote generator app built with **Next.js**, featuring topic-based quotes, authentication, animated visuals, and persistent favorites. Users can sign up, generate curated quotes, and save their favorite ones — all in a sleek, modern UI.
+A beautifully designed motivational quote generator app built with **Next.js**, featuring topic-based quotes, animated visuals, and persistent favorites. Users can generate curated quotes, and save their favorite ones — all in a sleek, modern UI.
 
 ---
 
@@ -8,7 +8,6 @@ A beautifully designed motivational quote generator app built with **Next.js**, 
 
 - 🎯 **Quote Generator** – Get inspirational quotes based on selected topics.
 - ❤️ **Favorites Section** – Save your favorite quotes (user-specific).
-- 🔐 **Authentication** – Firebase Auth with email & password.
 - ☁️ **Firestore Integration** – Favorites stored securely in Firebase Firestore.
 - 🌠 **Starry Animation** – Subtle animated background with stars for aesthetic depth.
 - 💡 **Modern UI** – Built with Tailwind CSS and ShadCN UI components.
@@ -25,7 +24,6 @@ A beautifully designed motivational quote generator app built with **Next.js**, 
 | **UI**        | React, Tailwind CSS, ShadCN UI |
 | **Animations**| Framer Motion |
 | **Icons**     | Lucide React |
-| **Auth**      | Firebase Authentication |
 | **Database**  | Firebase Firestore |
 | **State**     | Context API & Custom Hooks |
 
